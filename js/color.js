@@ -1,39 +1,16 @@
-// new Vue({
-//   data: {
-//     message: ''
-//   },
-//   methods: {
-//     refreshMessage(resource) {
-//       this.$http.get('/message').then((response) {
-//         this.message = response.data.message;
-//       });
-//     }
-//   }
-// })
 
-// Vue.component('sub-component', {
-//   template: '<div>{{ message }}</div>',
-//   props: [ 'message' ]
-//   methods: {
-//     refreshMessage() {
-//       this.$emit('refreshMessage');
-//     }
-//   }
-// });
-var startButton = document.getElementById('startGame');
-startButton.click(function(){
-  $.get({
+$("button").click(function(){
+    $.ajax({
+      type: 'GET',
     url: "/mastermind/startgame",
     success: function(colors, data, xhr){
-      console.log(colors);
-      console.log(data);
-      console.log(xhr);
+      console.log("this almost works")
     },
 
     error: function(){
       console.log("something went wrong");
     }
-})
+});;
 });
 
 function colors(number){
